@@ -1,3 +1,6 @@
+import {Link} from 'react-router-dom';
+import {AppRoute} from '../../const';
+
 export default function Login() {
   return (
     <main className="page__main page__main--login">
@@ -18,9 +21,9 @@ export default function Login() {
         </section>
         <section className="locations locations--login locations--current">
           <div className="locations__item">
-            <a className="locations__item-link" href="javascript:void(0);">
+            <Link className="locations__item-link" to={AppRoute.Root}>
               <span>Amsterdam</span>
-            </a>
+            </Link>
           </div>
         </section>
       </div>
