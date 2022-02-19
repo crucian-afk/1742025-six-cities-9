@@ -1,10 +1,12 @@
+import {Link} from 'react-router-dom';
 import Offer from '../offer/offer';
+import {AppRoute} from '../../const';
 
 type MainProps = {
   offersCount: number;
 }
 
-export default function MainPage(props: MainProps): JSX.Element {
+export default function MainPage({offersCount}: MainProps): JSX.Element {
   return (
     <div>
       <div style={{display: 'none'}}>
@@ -15,23 +17,23 @@ export default function MainPage(props: MainProps): JSX.Element {
           <div className="container">
             <div className="header__wrapper">
               <div className="header__left">
-                <a className="header__logo-link header__logo-link--active">
+                <a className="header__logo-link header__logo-link--active" href="/">
                   <img className="header__logo" src="./img/logo.svg" alt="6 cities logo" width={81} height={41} />
                 </a>
               </div>
               <nav className="header__nav">
                 <ul className="header__nav-list">
                   <li className="header__nav-item user">
-                    <a className="header__nav-link header__nav-link--profile" href="#">
+                    <a className="header__nav-link header__nav-link--profile" href="/">
                       <div className="header__avatar-wrapper user__avatar-wrapper">
                       </div>
                       <span className="header__user-name user__name">Oliver.conner@gmail.com</span>
                     </a>
                   </li>
                   <li className="header__nav-item">
-                    <a className="header__nav-link" href="#">
+                    <Link className="header__nav-link" to={AppRoute.Favorites}>
                       <span className="header__signout">Sign out</span>
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </nav>
@@ -44,32 +46,32 @@ export default function MainPage(props: MainProps): JSX.Element {
             <section className="locations container">
               <ul className="locations__list tabs__list">
                 <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
+                  <a className="locations__item-link tabs__item" href="/">
                     <span>Paris</span>
                   </a>
                 </li>
                 <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
+                  <a className="locations__item-link tabs__item" href="/">
                     <span>Cologne</span>
                   </a>
                 </li>
                 <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
+                  <a className="locations__item-link tabs__item" href="/">
                     <span>Brussels</span>
                   </a>
                 </li>
                 <li className="locations__item">
-                  <a className="locations__item-link tabs__item tabs__item--active">
+                  <a className="locations__item-link tabs__item tabs__item--active" href="/">
                     <span>Amsterdam</span>
                   </a>
                 </li>
                 <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
+                  <a className="locations__item-link tabs__item" href="/">
                     <span>Hamburg</span>
                   </a>
                 </li>
                 <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
+                  <a className="locations__item-link tabs__item" href="/">
                     <span>Dusseldorf</span>
                   </a>
                 </li>
@@ -80,7 +82,7 @@ export default function MainPage(props: MainProps): JSX.Element {
             <div className="cities__places-container container">
               <section className="cities__places places">
                 <h2 className="visually-hidden">Places</h2>
-                <b className="places__found">{props.offersCount} places to stay in Amsterdam</b>
+                <b className="places__found">{offersCount} places to stay in Amsterdam</b>
                 <form className="places__sorting" action="#" method="get">
                   <span className="places__sorting-caption">Sort by</span>
                   <span className="places__sorting-type" tabIndex={0}>
