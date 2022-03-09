@@ -4,22 +4,24 @@ import MainPage from '../main-page/main-page';
 import PrivateRoute from '../private-route/private-route';
 import Login from '../login/login';
 import NotFoundScreen from '../not-found/not-found';
+import {SingleOfferPreview} from '../../types/single-offer-preview';
+import Property from '../property/property';
 
-type AppScreenProps = {
-  offersCount: number;
+type AppProps = {
+  offers: SingleOfferPreview[];
 }
 
-export default function App({offersCount}: AppScreenProps): JSX.Element {
+export default function App({offers}: AppProps): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
         <Route
           path={AppRoute.Root}
-          element={ <MainPage offersCount={offersCount} /> }
+          element={ <MainPage offers={offers} /> }
         />
         <Route
           path={AppRoute.Room}
-          element={ <MainPage offersCount={offersCount} /> }
+          element={ <Property /> }
         />
         <Route
           path={AppRoute.Favorites}
