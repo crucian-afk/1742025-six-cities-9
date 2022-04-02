@@ -6,6 +6,7 @@ import Login from '../login/login';
 import NotFoundScreen from '../not-found/not-found';
 import {SingleOfferPreview} from '../../types/single-offer-preview';
 import Property from '../property/property';
+import FavoriteList from '../favorites/favorite-list';
 
 type AppProps = {
   offers: SingleOfferPreview[];
@@ -21,15 +22,15 @@ export default function App({offers}: AppProps): JSX.Element {
         />
         <Route
           path={AppRoute.Room}
-          element={ <Property /> }
+          element={ <Property offers={offers} /> }
         />
         <Route
           path={AppRoute.Favorites}
           element={
             <PrivateRoute
-              authorizationStatus={AuthorizationStatus.NoAuth}
+              authorizationStatus={AuthorizationStatus.Auth}
             >
-              <Login />
+              <FavoriteList offers={offers} />
             </PrivateRoute>
           }
         />

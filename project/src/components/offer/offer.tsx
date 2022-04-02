@@ -1,25 +1,22 @@
 import {SingleOfferPreview} from '../../types/single-offer-preview';
-import {Link} from 'react-router-dom';
-import {AppRoute} from '../../const';
+import {Link, generatePath} from 'react-router-dom';
+import capitalize from '../../utils/utils';
 
 type offerProps = {
   offer: SingleOfferPreview;
+  setActiveOffer: (id: number | undefined) => void;
 }
 
-const capitalize = (string: string): string => {
-  if (!string) {
-    return string;
-  }
-  return string[0].toUpperCase() + string.slice(1);
-};
-
-export default function Offer({offer}: offerProps): JSX.Element {
-  const {isPremium, previewImage, type, title, rating, price, isFavorite} = offer;
+export default function Offer({offer, setActiveOffer}: offerProps): JSX.Element {
+  const {isPremium, previewImage, type, title, rating, price, isFavorite, id} = offer;
   return (
-    <article className="cities__place-card place-card">
-      {isPremium ? <div className="place-card__mark"><span>Premium</span></div> : ''}
+    <article className="cities__place-card place-card"
+      onPointerEnter={() => setActiveOffer(id)}
+      onPointerLeave={() => setActiveOffer(undefined)}
+    >
+      {isPremium && <div className="place-card__mark"><span>Premium</span></div>}
       <div className="cities__image-wrapper place-card__image-wrapper">
-        <Link to={AppRoute.Room}>
+        <Link to={generatePath('/offer/:id', {id: String(id)})}>
           <img className="place-card__image" src={previewImage} width={260} height={200} alt="Place" />
         </Link>
       </div>
@@ -29,7 +26,7 @@ export default function Offer({offer}: offerProps): JSX.Element {
             <b className="place-card__price-value">€{price}</b>
             <span className="place-card__price-text">/&nbsp;night</span>
           </div>
-          <button className={`place-card__bookmark-button${isFavorite ? '--active' : ''}`} type="button">
+          <button className={`place-card__bookmark-button ${isFavorite && 'place-card__bookmark-button--active'}`} type="button">
             <svg className="place-card__bookmark-icon" width={18} height={19}>
               <use xlinkHref="#icon-bookmark" />
             </svg>
@@ -43,7 +40,7 @@ export default function Offer({offer}: offerProps): JSX.Element {
           </div>
         </div>
         <h2 className="place-card__name">
-          <Link to={AppRoute.Room}>{title}</Link>
+          <Link to={generatePath('/offer/:id', {id: String(id)})}>{title}</Link>
         </h2>
         <p className="place-card__type">{capitalize(type)}</p>
       </div>
