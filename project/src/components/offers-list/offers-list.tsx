@@ -1,19 +1,23 @@
 import Offer from '../offer/offer';
 import {SingleOfferPreview} from '../../types/single-offer-preview';
-import {useState} from 'react';
 
 type offerListProps = {
   offers: SingleOfferPreview[];
+  onMouseEnter: (id: number) => void;
+  onMouseLeave: () => void;
 }
 
-export default function OffersList({offers}: offerListProps): JSX.Element {
-  const [activeOffer, setActiveOffer] = useState<number | undefined>();
-  // eslint-disable-next-line no-console
-  console.log(activeOffer);
+export default function OffersList({offers, onMouseEnter, onMouseLeave}: offerListProps): JSX.Element {
+
   return (
     <>
       {offers.map((offer: SingleOfferPreview) => (
-        <Offer key={offer.id} offer={offer} setActiveOffer={setActiveOffer}/>
+        <Offer
+          key={offer.id}
+          offer={offer}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+        />
       ))}
     </>
   );
