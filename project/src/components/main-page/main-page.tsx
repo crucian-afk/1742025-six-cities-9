@@ -1,12 +1,13 @@
 import {Link} from 'react-router-dom';
-import Offer from '../offer/offer';
 import {AppRoute} from '../../const';
+import OffersList from '../offers-list/offers-list';
+import {SingleOfferPreview} from '../../types/single-offer-preview';
 
 type MainProps = {
-  offersCount: number;
+  offers: SingleOfferPreview[];
 }
 
-export default function MainPage({offersCount}: MainProps): JSX.Element {
+export default function MainPage({offers}: MainProps): JSX.Element {
   return (
     <div>
       <div style={{display: 'none'}}>
@@ -82,7 +83,7 @@ export default function MainPage({offersCount}: MainProps): JSX.Element {
             <div className="cities__places-container container">
               <section className="cities__places places">
                 <h2 className="visually-hidden">Places</h2>
-                <b className="places__found">{offersCount} places to stay in Amsterdam</b>
+                <b className="places__found">{offers.length} places to stay in Amsterdam</b>
                 <form className="places__sorting" action="#" method="get">
                   <span className="places__sorting-caption">Sort by</span>
                   <span className="places__sorting-type" tabIndex={0}>
@@ -99,11 +100,7 @@ export default function MainPage({offersCount}: MainProps): JSX.Element {
                   </ul>
                 </form>
                 <div className="cities__places-list places__list tabs__content">
-                  <Offer />
-                  <Offer />
-                  <Offer />
-                  <Offer />
-                  <Offer />
+                  <OffersList offers={offers} />
                 </div>
               </section>
               <div className="cities__right-section">
