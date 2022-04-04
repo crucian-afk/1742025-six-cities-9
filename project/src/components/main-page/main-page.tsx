@@ -1,13 +1,25 @@
 import {Link} from 'react-router-dom';
 import {AppRoute} from '../../const';
 import OffersList from '../offers-list/offers-list';
-import {SingleOfferPreview} from '../../types/single-offer-preview';
+import {ActiveOfferId, SingleOfferPreview} from '../../types/single-offer-preview';
+import {useState} from 'react';
+import Map from '../map/map';
 
 type MainProps = {
   offers: SingleOfferPreview[];
 }
 
 export default function MainPage({offers}: MainProps): JSX.Element {
+  const currentCity = offers[0].city;
+
+  const [activeOfferId, setActiveOfferId] = useState<ActiveOfferId>({
+    id: null,
+  });
+
+  const handleOfferMouseEnter = (id: number) => setActiveOfferId({id});
+
+  const handleOfferMouseLeave = () => setActiveOfferId({id: null});
+
   return (
     <div>
       <div style={{display: 'none'}}>
@@ -100,11 +112,17 @@ export default function MainPage({offers}: MainProps): JSX.Element {
                   </ul>
                 </form>
                 <div className="cities__places-list places__list tabs__content">
-                  <OffersList offers={offers} />
+                  <OffersList
+                    offers={offers}
+                    onMouseEnter={handleOfferMouseEnter}
+                    onMouseLeave={handleOfferMouseLeave}
+                  />
                 </div>
               </section>
               <div className="cities__right-section">
-                <section className="cities__map map" />
+                <section className="cities__map map">
+                  <Map offers={offers} currentCity={currentCity} activeOffer={activeOfferId} />
+                </section>
               </div>
             </div>
           </div>

@@ -5,8 +5,8 @@ const offers: SingleOfferPreview[] = [
     bedrooms: 3,
     city: {
       location: {
-        latitude: 52.380216,
-        longitude: 4.815168,
+        latitude: 52.3909553943508,
+        longitude: 4.85309666406198,
         zoom: 10,
       },
       name: 'Amsterdam',
@@ -30,8 +30,8 @@ const offers: SingleOfferPreview[] = [
     isFavorite: true,
     isPremium: false,
     location: {
-      latitude: 52.370216,
-      longitude: 4.895168,
+      latitude: 52.3909553943508,
+      longitude: 4.85309666406198,
       zoom: 10,
     },
     maxAdults: 4,
@@ -45,8 +45,8 @@ const offers: SingleOfferPreview[] = [
     bedrooms: 2,
     city: {
       location: {
-        latitude: 42.370216,
-        longitude: 3.895168,
+        latitude: 52.369553943508,
+        longitude: 4.85309666406198,
         zoom: 10,
       },
       name: 'Berlin',
@@ -70,8 +70,8 @@ const offers: SingleOfferPreview[] = [
     isFavorite: true,
     isPremium: true,
     location: {
-      latitude: 42.170216,
-      longitude: 3.895168,
+      latitude: 52.369553943508,
+      longitude: 4.85309666406198,
       zoom: 10,
     },
     maxAdults: 1,
@@ -85,8 +85,8 @@ const offers: SingleOfferPreview[] = [
     bedrooms: 1,
     city: {
       location: {
-        latitude: 57.640216,
-        longitude: 4.155168,
+        latitude: 52.3909553943508,
+        longitude: 4.929309666406198,
         zoom: 10,
       },
       name: 'Amsterdam',
@@ -111,8 +111,8 @@ const offers: SingleOfferPreview[] = [
     isFavorite: false,
     isPremium: false,
     location: {
-      latitude: 55.640216,
-      longitude: 5.155168,
+      latitude: 52.3909553943508,
+      longitude: 4.929309666406198,
       zoom: 9,
     },
     maxAdults: 3,
@@ -126,8 +126,8 @@ const offers: SingleOfferPreview[] = [
     bedrooms: 3,
     city: {
       location: {
-        latitude: 52.370216,
-        longitude: 4.895168,
+        latitude: 52.3809553943508,
+        longitude: 4.939309666406198,
         zoom: 10,
       },
       name: 'Barcelona',
@@ -155,8 +155,8 @@ const offers: SingleOfferPreview[] = [
     isFavorite: true,
     isPremium: true,
     location: {
-      latitude: 52.770216,
-      longitude: 4.375168,
+      latitude: 52.3809553943508,
+      longitude: 4.939309666406198,
       zoom: 7,
     },
     maxAdults: 5,

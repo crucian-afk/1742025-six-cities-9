@@ -4,15 +4,16 @@ import capitalize from '../../utils/utils';
 
 type offerProps = {
   offer: SingleOfferPreview;
-  setActiveOffer: (id: number | undefined) => void;
+  onMouseEnter: (id: number) => void;
+  onMouseLeave: () => void;
 }
 
-export default function Offer({offer, setActiveOffer}: offerProps): JSX.Element {
+export default function Offer({offer, onMouseEnter, onMouseLeave}: offerProps): JSX.Element {
   const {isPremium, previewImage, type, title, rating, price, isFavorite, id} = offer;
   return (
     <article className="cities__place-card place-card"
-      onPointerEnter={() => setActiveOffer(id)}
-      onPointerLeave={() => setActiveOffer(undefined)}
+      onMouseEnter={() => onMouseEnter(id)}
+      onMouseLeave={() => onMouseLeave()}
     >
       {isPremium && <div className="place-card__mark"><span>Premium</span></div>}
       <div className="cities__image-wrapper place-card__image-wrapper">

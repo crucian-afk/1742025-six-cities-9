@@ -1,13 +1,19 @@
+export type city = {
+  location: {
+    latitude: number;
+    longitude: number;
+    zoom: number;
+  }
+  name: string;
+}
+
+export type ActiveOfferId = {
+  id: number | null;
+}
+
 export type SingleOfferPreview = {
   bedrooms: number;
-  city: {
-    location: {
-      latitude: number;
-      longitude: number;
-      zoom: number;
-    }
-    name: string;
-  }
+  city: city;
   description: string;
   goods: string[];
   host: {
