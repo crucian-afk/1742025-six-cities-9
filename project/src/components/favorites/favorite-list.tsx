@@ -1,8 +1,8 @@
-import {SingleOfferPreview} from '../../types/single-offer-preview';
+import {OfferType} from '../../types/offer-type';
 import Favorite from '../favorite/favorite';
 
 type favoriteListProps = {
-  offers: SingleOfferPreview[];
+  offers: OfferType[];
 }
 
 export default function FavoriteList({offers}: favoriteListProps): JSX.Element {
@@ -45,7 +45,7 @@ export default function FavoriteList({offers}: favoriteListProps): JSX.Element {
             <section className="favorites">
               <h1 className="favorites__title">Saved listing</h1>
               <ul className="favorites__list">
-                {offers.map((offer: SingleOfferPreview) => (
+                {offers.map((offer: OfferType) => (
                   <li key={offer.id} className="favorites__locations-items">
                     <div className="favorites__locations locations locations--current">
                       <div className="locations__item">
