@@ -1,19 +1,26 @@
-import {SingleOfferPreview} from '../../types/single-offer-preview';
+import {OfferType} from '../../types/offer-type';
 import {Link, generatePath} from 'react-router-dom';
-import capitalize from '../../utils/utils';
+import {capitalize} from '../../utils/utils';
 
 type offerProps = {
-  offer: SingleOfferPreview;
-  onMouseEnter: (id: number) => void;
-  onMouseLeave: () => void;
+  offer: Pick<OfferType, 'isPremium' | 'isFavorite' | 'price' | 'rating' | 'title' | 'type' | 'previewImage' | 'id'>;
+  setActiveOffer?: (x: number | null) => void;
 }
 
-export default function Offer({offer, onMouseEnter, onMouseLeave}: offerProps): JSX.Element {
-  const {isPremium, previewImage, type, title, rating, price, isFavorite, id} = offer;
+export default function Offer(props: offerProps): JSX.Element {
+  const {setActiveOffer, offer: {
+    isPremium, price, rating, title, type, id, previewImage, isFavorite,
+  }} = props;
+
+  const handleMouseOver = (offerId: number) => () => {
+    if(setActiveOffer) {
+      setActiveOffer(offerId);
+    }
+  };
+
   return (
     <article className="cities__place-card place-card"
-      onMouseEnter={() => onMouseEnter(id)}
-      onMouseLeave={() => onMouseLeave()}
+      onMouseOver={handleMouseOver(id)}
     >
       {isPremium && <div className="place-card__mark"><span>Premium</span></div>}
       <div className="cities__image-wrapper place-card__image-wrapper">

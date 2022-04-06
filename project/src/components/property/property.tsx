@@ -1,10 +1,10 @@
 import SendCommentForm from '../send-comment-form/send-comment-form';
-import {SingleOfferPreview} from '../../types/single-offer-preview';
+import {OfferType} from '../../types/offer-type';
 import {useParams} from 'react-router-dom';
-import capitalize from '../../utils/utils';
+import {capitalize} from '../../utils/utils';
 
 type propertyProps = {
-  offers: SingleOfferPreview[];
+  offers: OfferType[];
 }
 
 type paramsProps = {

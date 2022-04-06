@@ -1,8 +1,8 @@
-import {SingleOfferPreview} from '../../types/single-offer-preview';
+import {OfferType} from '../../types/offer-type';
 import {Link} from 'react-router-dom';
 
 type favoriteProps = {
-  offer: SingleOfferPreview;
+  offer: OfferType;
 }
 
 export default function Favorite({offer}: favoriteProps) {

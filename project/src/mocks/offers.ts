@@ -1,6 +1,6 @@
-import {SingleOfferPreview} from '../types/single-offer-preview';
+import {OfferType} from '../types/offer-type';
 
-const offers: SingleOfferPreview[] = [
+const offers: OfferType[] = [
   {
     bedrooms: 3,
     city: {
@@ -49,7 +49,7 @@ const offers: SingleOfferPreview[] = [
         longitude: 4.85309666406198,
         zoom: 10,
       },
-      name: 'Berlin',
+      name: 'Paris',
     },
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta laborum Berlin',
     goods: [
@@ -130,7 +130,7 @@ const offers: SingleOfferPreview[] = [
         longitude: 4.939309666406198,
         zoom: 10,
       },
-      name: 'Barcelona',
+      name: 'Hamburg',
     },
     description: 'nesciunt quasi quibusdam. Accusamus commodi cum dolorem eius nam sed Stuttgart',
     goods: [

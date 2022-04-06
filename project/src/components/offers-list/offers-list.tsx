@@ -1,22 +1,20 @@
 import Offer from '../offer/offer';
-import {SingleOfferPreview} from '../../types/single-offer-preview';
+import {Offers} from '../../types/offer-type';
 
 type offerListProps = {
-  offers: SingleOfferPreview[];
-  onMouseEnter: (id: number) => void;
-  onMouseLeave: () => void;
+  offers: Offers;
+  setActiveOffer?: (x: number | null) => void;
 }
 
-export default function OffersList({offers, onMouseEnter, onMouseLeave}: offerListProps): JSX.Element {
-
+export default function OffersList(props: offerListProps): JSX.Element {
+  const {offers} = props;
   return (
     <>
-      {offers.map((offer: SingleOfferPreview) => (
+      {offers.map((offer) => (
         <Offer
           key={offer.id}
           offer={offer}
-          onMouseEnter={onMouseEnter}
-          onMouseLeave={onMouseLeave}
+          setActiveOffer={props.setActiveOffer}
         />
       ))}
     </>
